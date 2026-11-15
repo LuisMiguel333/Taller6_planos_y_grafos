@@ -1,7 +1,5 @@
 namespace Backend;
 
-// Weighted graph stored as an adjacency list.
-// Each vertex has a list with the edges that leave from it.
 public class Graph<T> where T : notnull
 {
     private readonly Dictionary<T, List<Edge<T>>> adjacency = new();
@@ -36,8 +34,7 @@ public class Graph<T> where T : notnull
         }
     }
 
-    // In a directed graph this adds ONE edge (from -> to).
-    // In an undirected graph it also adds the edge back (to -> from).
+
     public void AddEdge(T from, T to, int weight)
     {
         AddVertex(from);

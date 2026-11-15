@@ -1,10 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+	<OutputType>Exe</OutputType>
+	<TargetFramework>net10.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+	<None Update="city.txt" CopyToOutputDirectory="PreserveNewest" />
+	<None Update="packages.txt" CopyToOutputDirectory="PreserveNewest" />
+	<None Update="city_mini.txt" CopyToOutputDirectory="PreserveNewest" />
+	<None Update="packages_mini.txt" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 
 </Project>
