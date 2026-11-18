@@ -2,8 +2,6 @@ using System.Text;
 
 namespace Backend;
 
-// Reads city.txt and builds the directed graph.
-// Line format: from,to,distance_in_meters,direction
 public static class CityFile
 {
     public static Graph<string> Load(string path, out int streetCount, out int oneWayCount)
@@ -20,7 +18,6 @@ public static class CityFile
         Graph<string> graph = new Graph<string>(directed: true);
         List<string> errors = new List<string>();
 
-        // Remembers the first line where each street appeared (A,B and B,A are the same street)
         Dictionary<string, int> seenStreets = new Dictionary<string, int>();
 
         string[] lines = File.ReadAllLines(path);
@@ -30,7 +27,6 @@ public static class CityFile
             int lineNumber = i + 1;
             string line = lines[i].Trim();
 
-            // Blank lines and comments are ignored
             if (line == "" || line.StartsWith("#"))
             {
                 continue;
@@ -83,7 +79,6 @@ public static class CityFile
             }
             seenStreets[key] = lineNumber;
 
-            // OneWay = one edge, TwoWay = one edge in each direction
             graph.AddEdge(from, to, distance);
             if (isTwoWay)
             {

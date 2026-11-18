@@ -8,7 +8,6 @@ public static class ShortestPaths
         Dictionary<string, int> distance = new Dictionary<string, int>();
         previous = new Dictionary<string, string>();
 
-       
         PriorityQueue<string, int> queue = new PriorityQueue<string, int>();
 
         distance[source] = 0;
@@ -16,7 +15,6 @@ public static class ShortestPaths
 
         while (queue.TryDequeue(out string? current, out int currentDistance))
         {
-            
             if (currentDistance > distance[current])
             {
                 continue;
@@ -38,7 +36,6 @@ public static class ShortestPaths
         return distance;
     }
 
-    
     public static List<string> BuildPath(Dictionary<string, string> previous, string source, string target)
     {
         List<string> path = new List<string>();
